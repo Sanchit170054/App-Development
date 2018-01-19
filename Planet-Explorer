@@ -16,7 +16,7 @@ import java.text.DecimalFormat;
  * Copyright: Copyright Â© 2018
  * </p>
  *
- * @author Lynn Robert Carter
+ * @author Sanchit
  * @version 3.00
  */
 public class PlanetExplorer {
