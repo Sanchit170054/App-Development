@@ -1,0 +1,358 @@
+package planetExplorer;
+
+import java.text.DecimalFormat;
+
+/**
+ * <p>
+ * Title: Mainline - Week 2 Day 4 Study Hall Exercise
+ * </p>
+ *
+ * <p>
+ * Description: The Planet Explorer program shows how constants and variables are used to
+ * compute useful values and then how to display those values.
+ * </p>
+ *
+ * <p>
+ * Copyright: Copyright Â© 2018
+ * </p>
+ *
+ * @author Lynn Robert Carter
+ * @version 3.00
+ */
+public class PlanetExplorer {
+	
+	/**********************************************************************************************
+	 * The following are the class Attributes for this program
+	 */
+	
+	// Constants
+	// Mercury
+	static final double MERCURY_SUN_DISTANCE 	= 5.79E10;		// meters
+	static final double MERCURY_VELOCITY 		= 4.79E04;		// meters/second
+	static final double MERCURY_MASS 			= 3.302E23;		// kilograms
+	static final double MERCURY_RADIUS 			= 2.4397E06;		// meters
+
+	// Venus
+	static final double VENUS_SUN_DISTANCE 		= 1.082E11;		// meters
+	static final double VENUS_VELOCITY 			= 3.5E04;		// meters/second
+	static final double VENUS_MASS 				= 4.8685E24;		// kilograms
+	static final double VENUS_RADIUS 			= 6.0519E06;		// meters
+
+	// Earth
+	static final double EARTH_SUN_DISTANCE 		= 1.496E11;		// meters
+	static final double EARTH_VELOCITY 			= 2.98E04;		// meters/second
+	static final double EARTH_MASS 				= 5.9742E24;		// kilograms
+	static final double EARTH_RADIUS 			= 6.3728E06;		// meters
+
+	// Mars
+	static final double MARS_SUN_DISTANCE 		= 2.279E11;		// meters
+	static final double MARS_VELOCITY 			= 2.41E04;		// meters/second
+	static final double MARS_MASS				= 6.4185E23;		// kilograms
+	static final double MARS_RADIUS 				= 3.4025E06;		// meters
+
+	// Jupiter
+	static final double JUPITER_SUN_DISTANCE 	= 7.783E11;		// meters
+	static final double JUPITER_VELOCITY 		= 1.31E04;		// meters/second
+	static final double JUPITER_MASS 			= 1.8986E27;		// kilograms
+	static final double JUPITER_RADIUS 			= 6.8366E07;		// meters
+
+	// Saturn
+	static final double SATURN_SUN_DISTANCE 		= 1.426E12;		// meters
+	static final double SATURN_VELOCITY 			= 9.6E03;		// meters/second
+	static final double SATURN_MASS 				= 5.6846E26;		// kilograms
+	static final double SATURN_RADIUS 			= 6.0268E07;		// meters
+
+	// Uranus
+	static final double URANUS_SUN_DISTANCE 		= 2.871E12;		// meters
+	static final double URANUS_VELOCITY 			= 6.8E03;		// meters/second
+	static final double URANUS_MASS 				= 8.6832E25;		// kilograms
+	static final double URANUS_RADIUS 			= 2.5559E07;		// meters
+
+	// Neptune
+	static final double NEPTUNE_SUN_DISTANCE 	= 4.497E12;		// meters
+	static final double NEPTUNE_VELOCITY 		= 5.4E03;		// meters/second
+	static final double NEPTUNE_MASS 			= 1.0243E26;		// kilograms
+	static final double NEPTUNE_RADIUS 			= 2.4622E07;		// meters
+
+	// Pluto (No longer considered to be a "planet" but as a "dwarf planet" we still include it)
+	static final double PLUTO_SUN_DISTANCE 		= 5.914E12;		// meters
+	static final double PLUTO_VELOCITY 			= 4.7E03;		// meters/second
+	static final double PLUTO_MASS 				= 1.305E22;		// kilograms
+	static final double PLUTO_RADIUS 			= 1.159E06;		// meters
+	
+	// Gravitational constants
+	static final double GRAVITATIONAL_CONSTANT 	= 6.674E-11;	
+	static final double GRAVITATIONAL_ACCELERATION 	= 9.81;		// meters / second
+	
+	// Time constants
+	static final int SECONDS_PER_MINUTE 			= 60;						// seconds / minute
+	static final int SECONDS_PER_HOUR 			= 60 * SECONDS_PER_MINUTE;	// seconds / hour
+	static final int SECONDS_PER_DAY 			= 24 * SECONDS_PER_HOUR;		// seconds / day
+	static final int SECONDS_PER_YEAR 			= 365 * SECONDS_PER_DAY;		// seconds / year
+	
+	/**********
+	 * This is the entry point for the program.  Execution starts here.
+	 * 
+	 * @param args	This program ignores the command line arguments
+	 */
+	public static void main (String [] args) {
+		// Display a title for this program on the console.  Replace Dr. Carter's name with your own.	
+		System.out.println("Planet Explorer");
+		System.out.println("     by: Sanchit");
+		
+		// Compute and display the periods of the specified nine solar objects in years, days, hours, 
+		// minutes, and seconds		
+		System.out.println();
+		System.out.println("Orbital periods of nine solar system objects");
+		
+		// These variables are used over again for each of the nine objects to transform the very
+		// large number of seconds into more human readable years, days, hours, minutes, and seconds
+		long orbitalPeriod = 	0;	// seconds
+		long numYears = 			0;	// years
+		long numDays = 			0;	// days
+		long numHours = 			0;	// hours
+		long numMinutes = 		0;	// minutes
+		long numSeconds = 		0;	// seconds
+		long remainder = 		0;	// seconds
+		
+		// Compute the period of each object in seconds, convert to a set of integer values for
+		// years, days, hours, minutes, and seconds, and then display the information
+		//
+		// The following equations are for Mercury  
+		//      (We convert the double result into a long for output purposes as a whole number.)
+		orbitalPeriod = (long)(2 * Math.PI * MERCURY_SUN_DISTANCE / MERCURY_VELOCITY);
+		
+		numYears = orbitalPeriod / SECONDS_PER_YEAR;
+		remainder = orbitalPeriod % SECONDS_PER_YEAR;
+		
+		numDays = remainder / SECONDS_PER_DAY;
+		remainder = remainder % SECONDS_PER_DAY;
+		
+		numHours = remainder / SECONDS_PER_HOUR;
+		remainder = remainder % SECONDS_PER_HOUR;
+		
+		numMinutes = remainder / SECONDS_PER_MINUTE;
+		numSeconds = remainder % SECONDS_PER_MINUTE;		
+
+		// Write out the results onto the console
+		System.out.println("   Mercury: " + numYears + " years, " + numDays + " days, " + 
+				numHours + " hours, " + numMinutes + " minutes, " + numSeconds + " seconds.");
+		
+		
+		// These equations are for Venus
+		orbitalPeriod = (long)(2 * Math.PI * VENUS_SUN_DISTANCE / VENUS_VELOCITY);
+		
+		numYears = orbitalPeriod / SECONDS_PER_YEAR;
+		remainder = orbitalPeriod % SECONDS_PER_YEAR;
+		
+		numDays = remainder / SECONDS_PER_DAY;
+		remainder = remainder % SECONDS_PER_DAY;
+		
+		numHours = remainder / SECONDS_PER_HOUR;
+		remainder = remainder % SECONDS_PER_HOUR;
+		
+		numMinutes = remainder / SECONDS_PER_MINUTE;
+		numSeconds = remainder % SECONDS_PER_MINUTE;		
+		
+		System.out.println("     Venus: " + numYears + " years, " + numDays + " days, " + 
+				numHours + " hours, " + numMinutes + " minutes, " + numSeconds + " seconds.");
+		
+		
+		// This is for Earth
+		orbitalPeriod = (long)(2 * Math.PI * EARTH_SUN_DISTANCE / EARTH_VELOCITY);
+		
+		numYears = orbitalPeriod / SECONDS_PER_YEAR;
+		remainder = orbitalPeriod % SECONDS_PER_YEAR;
+		
+		numDays = remainder / SECONDS_PER_DAY;
+		remainder = remainder % SECONDS_PER_DAY;
+		
+		numHours = remainder / SECONDS_PER_HOUR;
+		remainder = remainder % SECONDS_PER_HOUR;
+		
+		numMinutes = remainder / SECONDS_PER_MINUTE;
+		numSeconds = remainder % SECONDS_PER_MINUTE;		
+		
+		System.out.println("     Earth: " + numYears + " years, " + numDays + " days, " + 
+				numHours + " hours, " + numMinutes + " minutes, " + numSeconds + " seconds.");
+		
+		
+		// This is for Mars
+		orbitalPeriod = (long)(2 * Math.PI * MARS_SUN_DISTANCE / MARS_VELOCITY);
+		
+		numYears = orbitalPeriod / SECONDS_PER_YEAR;
+		remainder = orbitalPeriod % SECONDS_PER_YEAR;
+		
+		numDays = remainder / SECONDS_PER_DAY;
+		remainder = remainder % SECONDS_PER_DAY;
+		
+		numHours = remainder / SECONDS_PER_HOUR;
+		remainder = remainder % SECONDS_PER_HOUR;
+		
+		numMinutes = remainder / SECONDS_PER_MINUTE;
+		numSeconds = remainder % SECONDS_PER_MINUTE;		
+		
+		System.out.println("      Mars: " + numYears + " years, " + numDays + " days, " + 
+				numHours + " hours, " + numMinutes + " minutes, " + numSeconds + " seconds.");
+		
+		
+		// This is for Jupiter
+		orbitalPeriod = (long)(2 * Math.PI * JUPITER_SUN_DISTANCE / JUPITER_VELOCITY);
+		
+		numYears = orbitalPeriod / SECONDS_PER_YEAR;
+		remainder = orbitalPeriod % SECONDS_PER_YEAR;
+		
+		numDays = remainder / SECONDS_PER_DAY;
+		remainder = remainder % SECONDS_PER_DAY;
+		
+		numHours = remainder / SECONDS_PER_HOUR;
+		remainder = remainder % SECONDS_PER_HOUR;
+		
+		numMinutes = remainder / SECONDS_PER_MINUTE;
+		numSeconds = remainder % SECONDS_PER_MINUTE;		
+		
+		System.out.println("   Jupiter: " + numYears + " years, " + numDays + " days, " + 
+				numHours + " hours, " + numMinutes + " minutes, " + numSeconds + " seconds.");
+		
+		
+		// This is for Saturn
+		orbitalPeriod = (long)(2 * Math.PI * SATURN_SUN_DISTANCE / SATURN_VELOCITY);
+		
+		numYears = orbitalPeriod / SECONDS_PER_YEAR;
+		remainder = orbitalPeriod % SECONDS_PER_YEAR;
+		
+		numDays = remainder / SECONDS_PER_DAY;
+		remainder = remainder % SECONDS_PER_DAY;
+		
+		numHours = remainder / SECONDS_PER_HOUR;
+		remainder = remainder % SECONDS_PER_HOUR;
+		
+		numMinutes = remainder / SECONDS_PER_MINUTE;
+		numSeconds = remainder % SECONDS_PER_MINUTE;		
+		
+		System.out.println("    Saturn: " + numYears + " years, " + numDays + " days, " + 
+				numHours + " hours, " + numMinutes + " minutes, " + numSeconds + " seconds.");
+		
+		
+		// This is for Uranus
+		orbitalPeriod = (long)(2 * Math.PI * URANUS_SUN_DISTANCE / URANUS_VELOCITY);
+		
+		numYears = orbitalPeriod / SECONDS_PER_YEAR;
+		remainder = orbitalPeriod % SECONDS_PER_YEAR;
+		
+		numDays = remainder / SECONDS_PER_DAY;
+		remainder = remainder % SECONDS_PER_DAY;
+		
+		numHours = remainder / SECONDS_PER_HOUR;
+		remainder = remainder % SECONDS_PER_HOUR;
+		
+		numMinutes = remainder / SECONDS_PER_MINUTE;
+		numSeconds = remainder % SECONDS_PER_MINUTE;		
+		
+		System.out.println("    Uranus: " + numYears + " years, " + numDays + " days, " + 
+				numHours + " hours, " + numMinutes + " minutes, " + numSeconds + " seconds.");
+		
+		
+		// This is for Neptune
+		orbitalPeriod = (long)(2 * Math.PI * NEPTUNE_SUN_DISTANCE / NEPTUNE_VELOCITY);
+		
+		numYears = orbitalPeriod / SECONDS_PER_YEAR;
+		remainder = orbitalPeriod % SECONDS_PER_YEAR;
+		
+		numDays = remainder / SECONDS_PER_DAY;
+		remainder = remainder % SECONDS_PER_DAY;
+		
+		numHours = remainder / SECONDS_PER_HOUR;
+		remainder = remainder % SECONDS_PER_HOUR;
+		
+		numMinutes = remainder / SECONDS_PER_MINUTE;
+		numSeconds = remainder % SECONDS_PER_MINUTE;		
+		
+		System.out.println("   Neptune: " + numYears + " years, " + numDays + " days, " + 
+				numHours + " hours, " + numMinutes + " minutes, " + numSeconds + " seconds.");
+		
+		
+		// This is for Pluto
+		orbitalPeriod = (long)(2 * Math.PI * PLUTO_SUN_DISTANCE / PLUTO_VELOCITY);
+		
+		numYears = orbitalPeriod / SECONDS_PER_YEAR;
+		remainder = orbitalPeriod % SECONDS_PER_YEAR;
+		
+		numDays = remainder / SECONDS_PER_DAY;
+		remainder = remainder % SECONDS_PER_DAY;
+		
+		numHours = remainder / SECONDS_PER_HOUR;
+		remainder = remainder % SECONDS_PER_HOUR;
+		
+		numMinutes = remainder / SECONDS_PER_MINUTE;
+		numSeconds = remainder % SECONDS_PER_MINUTE;		
+		
+		System.out.println("     Pluto: " + numYears + " years, " + numDays + " days, " + 
+				numHours + " hours, " + numMinutes + " minutes, " + numSeconds + " seconds.");
+		
+		
+		// Given a unit weight on each of the nine specified objects, using the provided constants and equations
+		// compute a value representing the weight of the unit and display it as a percentage.
+		System.out.println();
+		System.out.println("Percentage of what an object would weigh on Earth:");
+		
+		DecimalFormat percent = new DecimalFormat("0.0%");		
+		double objectMass = 1.0 / GRAVITATIONAL_ACCELERATION;
+		System.out.println("   Mercury: " + percent.format(objectMass * GRAVITATIONAL_CONSTANT * MERCURY_MASS / Math.pow(MERCURY_RADIUS, 2.0)));
+		System.out.println("     Venus: " + percent.format(objectMass * GRAVITATIONAL_CONSTANT * VENUS_MASS / Math.pow(VENUS_RADIUS, 2.0)));
+		System.out.println("     Earth: " + percent.format(objectMass * GRAVITATIONAL_CONSTANT * EARTH_MASS / Math.pow(EARTH_RADIUS, 2.0)));		
+		System.out.println("      Mars: " + percent.format(objectMass * GRAVITATIONAL_CONSTANT * MARS_MASS / Math.pow(MARS_RADIUS, 2.0)));		
+		System.out.println("   Jupiter: " + percent.format(objectMass * GRAVITATIONAL_CONSTANT * JUPITER_MASS / Math.pow(JUPITER_RADIUS, 2.0)));		
+		System.out.println("    Saturn: " + percent.format(objectMass * GRAVITATIONAL_CONSTANT * SATURN_MASS / Math.pow(SATURN_RADIUS, 2.0)));		
+		System.out.println("    Uranus: " + percent.format(objectMass * GRAVITATIONAL_CONSTANT * URANUS_MASS / Math.pow(URANUS_RADIUS, 2.0)));		
+		System.out.println("   Neptune: " + percent.format(objectMass * GRAVITATIONAL_CONSTANT * NEPTUNE_MASS / Math.pow(NEPTUNE_RADIUS, 2.0)));		
+		System.out.println("     Pluto: " + percent.format(objectMass * GRAVITATIONAL_CONSTANT * PLUTO_MASS / Math.pow(PLUTO_RADIUS, 2.0)));		
+
+		
+		// Compute and display the mass of the sun
+		double massOfSun = Math.pow(EARTH_VELOCITY, 2.0) * EARTH_SUN_DISTANCE / GRAVITATIONAL_CONSTANT;
+		
+		DecimalFormat scientific = new DecimalFormat("0.0000E00");
+		System.out.println();
+		System.out.println("Mass of the sun: "+ scientific.format(massOfSun));
+		System.out.println();
+		
+		// Compute how much you would weight on all of the above objects, given how much your weigh on Earth
+		
+		// Replace the "70" in the following line with how much you weigh (or you would like to weigh ;-)
+		double yourMassWeightOnEarth = 70;	// Kilograms
+		
+		DecimalFormat mass = new DecimalFormat("0.0");		
+		System.out.println("Your mass on Earth weighs: " + mass.format(yourMassWeightOnEarth) + " Kilograms");
+		
+		// Compute how much that mass weight would be on each of the planets
+		
+		double massWeightOnMercury = yourMassWeightOnEarth / GRAVITATIONAL_ACCELERATION * GRAVITATIONAL_CONSTANT * 
+				MERCURY_MASS / Math.pow(MERCURY_RADIUS, 2.0);
+		System.out.println("   on Mercury: " + mass.format(massWeightOnMercury) + " Kilograms");
+		
+		// Replace these two comment with appropriate pairs of statements for the other planet-like objects in our solar system
+		//      (There is no need to show the information for Earth again.
+		double massWeightOnVenus = yourMassWeightOnEarth / GRAVITATIONAL_ACCELERATION * GRAVITATIONAL_CONSTANT * VENUS_MASS / Math.pow(VENUS_RADIUS, 2.0);
+		System.out.println(" on Venus: "+mass.format(massWeightOnVenus) + "Kilograms");
+	
+		double massWeightOnMars = yourMassWeightOnEarth / GRAVITATIONAL_ACCELERATION * GRAVITATIONAL_CONSTANT * MARS_MASS / Math.pow(MARS_RADIUS, 2.0);
+		System.out.println(" on Mars: "+mass.format(massWeightOnMars) + "Kilograms");
+	
+		double massWeightOnJupiter = yourMassWeightOnEarth / GRAVITATIONAL_ACCELERATION * GRAVITATIONAL_CONSTANT * JUPITER_MASS / Math.pow(JUPITER_RADIUS, 2.0);
+		System.out.println(" on Jupiter: "+mass.format(massWeightOnJupiter) + "Kilograms");
+		
+		double massWeightOnSaturn = yourMassWeightOnEarth / GRAVITATIONAL_ACCELERATION * GRAVITATIONAL_CONSTANT * SATURN_MASS / Math.pow(SATURN_RADIUS, 2.0);
+		System.out.println(" on Saturn: "+mass.format(massWeightOnSaturn) + "Kilograms");
+		
+		double massWeightOnUranus = yourMassWeightOnEarth / GRAVITATIONAL_ACCELERATION * GRAVITATIONAL_CONSTANT * URANUS_MASS / Math.pow(URANUS_RADIUS, 2.0);
+		System.out.println(" on Uranus: "+mass.format(massWeightOnUranus) + "Kilograms");
+		
+		double massWeightOnNeptune = yourMassWeightOnEarth / GRAVITATIONAL_ACCELERATION * GRAVITATIONAL_CONSTANT * NEPTUNE_MASS / Math.pow(NEPTUNE_RADIUS, 2.0);
+		System.out.println(" on Neptune: "+mass.format(massWeightOnNeptune) + "Kilograms");
+		
+		double massWeightOnPluto = yourMassWeightOnEarth / GRAVITATIONAL_ACCELERATION * GRAVITATIONAL_CONSTANT * PLUTO_MASS / Math.pow(PLUTO_RADIUS, 2.0);
+		System.out.println(" on Pluto: "+mass.format(massWeightOnPluto) + "Kilograms");
+	}
+	
+}
