@@ -1,20 +1,16 @@
 package w4d2StudyHall;
-
 import java.util.Scanner;
 import java.util.Random;
 import java.io.File;
 import java.io.FileNotFoundException;
-
 public class HangmanGame{
-	/* Replace this line with a proper header which includes your name */
+	
 
 	private static String usersName;
 	private static String inputFromUser;
 	private static String theAnswer;
 	private static char menuCharacter;
-	static String [] secretWords = {"massive", "wonderful", "trouble", "theoretical", "unlimited",
-			"talented", "tasteful", "intellectual", "ordinary", "winner",
-			"master", "difficult", "success", "happy", "picture"};
+	static String [] secretWords ;
 	static Random random = new Random();
 	
 	public static void main(String args[]) {
@@ -25,7 +21,7 @@ public class HangmanGame{
 		Scanner keyboard = new Scanner(System.in);
 
 
-		/* Welcome the user and request the user to enter a name */
+		/* Welcome request the user to enter a name */
 		System.out.println("Welcome!");
 		
 		System.out.println("Please enter your name followed by a return");
@@ -48,9 +44,9 @@ public class HangmanGame{
 			/* Play the game? */
 			 if (inputFromUser.equals("p")) {
 				 System.out.println("Play the game command recognized ");
-				 System.out.println("Start the game (y/n) ");
+				 System.out.println("Start the game (Wanna play/not) ");
 				inputFromUser =keyboard.next();
-				if (inputFromUser.equals("y"));{
+				if (inputFromUser.equals("p"));{
 			int max = 15;
 			int min = 1;
 			int diff=max-min;
@@ -69,10 +65,10 @@ public class HangmanGame{
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
 		if (theAnswer.equals("S")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+			System.out.println("The Secret Word is : " +theWord+ " and you won the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you lose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -87,10 +83,10 @@ public class HangmanGame{
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
 		if (theAnswer.equals("E")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+			System.out.println("The Secret Word is : " +theWord+ " and you won the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you lose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -99,16 +95,16 @@ public class HangmanGame{
 				String theResult = theWord;
 				
 				char aCharacter = '?';
-				aCharacter = theWord.charAt(2 );
+				aCharacter = theWord.charAt(4);
 				theResult = theResult.replace(aCharacter, '?');
 				System.out.println("the display version of the word is: "+theResult);
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
-		if (theAnswer.equals("O")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+		if (theAnswer.equals("B")) {
+			System.out.println("The Secret Word is : " +theWord+ " and you won the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you lose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -123,10 +119,10 @@ public class HangmanGame{
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
 		if (theAnswer.equals("E")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+			System.out.println("The Secret Word is : " +theWord+ " and youwon the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you lose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -135,16 +131,16 @@ public class HangmanGame{
 				String theResult = theWord;
 				
 				char aCharacter = '?';
-				aCharacter = theWord.charAt(4);
+				aCharacter = theWord.charAt(3);
 				theResult = theResult.replace(aCharacter, '?');
 				System.out.println("the display version of the word is: "+theResult);
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
-		if (theAnswer.equals("M")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+		if (theAnswer.equals("I")) {
+			System.out.println("The Secret Word is : " +theWord+ " and you won the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you lose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -153,16 +149,16 @@ public class HangmanGame{
 				String theResult = theWord;
 				
 				char aCharacter = '?';
-				aCharacter = theWord.charAt(0);
+				aCharacter = theWord.charAt(3);
 				theResult = theResult.replace(aCharacter, '?');
 				System.out.println("the display version of the word is: "+theResult);
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
-		if (theAnswer.equals("T")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+		if (theAnswer.equals("E")) {
+			System.out.println("The Secret Word is : " +theWord+ " and you won the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you lose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -177,10 +173,10 @@ public class HangmanGame{
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
 		if (theAnswer.equals("S")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+			System.out.println("The Secret Word is : " +theWord+ " and you won the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you loose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -189,16 +185,16 @@ public class HangmanGame{
 				String theResult = theWord;
 				
 				char aCharacter = '?';
-				aCharacter = theWord.charAt(2);
+				aCharacter = theWord.charAt(4);
 				theResult = theResult.replace(aCharacter, '?');
 				System.out.println("the display version of the word is: "+theResult);
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
-		if (theAnswer.equals("T")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+		if (theAnswer.equals("L")) {
+			System.out.println("The Secret Word is : " +theWord+ " and you won the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you lose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -207,16 +203,16 @@ public class HangmanGame{
 				String theResult = theWord;
 				
 				char aCharacter = '?';
-				aCharacter = theWord.charAt(2);
+				aCharacter = theWord.charAt(4);
 				theResult = theResult.replace(aCharacter, '?');
 				System.out.println("the display version of the word is: "+theResult);
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
-		if (theAnswer.equals("S")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+		if (theAnswer.equals("N")) {
+			System.out.println("The Secret Word is : " +theWord+ " and you won the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you lose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -231,10 +227,10 @@ public class HangmanGame{
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
 		if (theAnswer.equals("I")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+			System.out.println("The Secret Word is : " +theWord+ " and you won the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you lose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -249,10 +245,10 @@ public class HangmanGame{
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
 		if (theAnswer.equals("M")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+			System.out.println("The Secret Word is : " +theWord+ " and you won the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you lose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -261,16 +257,16 @@ public class HangmanGame{
 				String theResult = theWord;
 				
 				char aCharacter = '?';
-				aCharacter = theWord.charAt(0);
+				aCharacter = theWord.charAt(2);
 				theResult = theResult.replace(aCharacter, '?');
 				System.out.println("the display version of the word is: "+theResult);
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
-		if (theAnswer.equals("D")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+		if (theAnswer.equals("F")) {
+			System.out.println("The Secret Word is : " +theWord+ " and you won the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you lose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -279,16 +275,16 @@ public class HangmanGame{
 				String theResult = theWord;
 				
 				char aCharacter = '?';
-				aCharacter = theWord.charAt(2);
+				aCharacter = theWord.charAt(4);
 				theResult = theResult.replace(aCharacter, '?');
 				System.out.println("the display version of the word is: "+theResult);
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
-		if (theAnswer.equals("C")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+		if (theAnswer.equals("E")) {
+			System.out.println("The Secret Word is : " +theWord+ " and you won the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you lose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -303,10 +299,10 @@ public class HangmanGame{
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
 		if (theAnswer.equals("P")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+			System.out.println("The Secret Word is : " +theWord+ " and you won the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you lose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -315,16 +311,16 @@ public class HangmanGame{
 				String theResult = theWord;
 				
 				char aCharacter = '?';
-				aCharacter = theWord.charAt(1);
+				aCharacter = theWord.charAt(2);
 				theResult = theResult.replace(aCharacter, '?');
 				System.out.println("the display version of the word is: "+theResult);
 		System.out.println("Guess the character");
 		theAnswer = keyboard.next();
-		if (theAnswer.equals("I")) {
-			System.out.println("The Secret Word is : " +theWord+ "and you have won the game");
+		if (theAnswer.equals("C")) {
+			System.out.println("The Secret Word is : " +theWord+ " and you won the game");
 			Won++;
 		} else  {
-			System.out.println("The Secret word is:" +theWord+ "you have lose the game, Please try again");
+			System.out.println("The Secret word is:" +theWord+ " you lose the game, Please try again");
 			Lose++;
 		}	
 			}
@@ -356,8 +352,8 @@ public class HangmanGame{
 		else {
 			System.out.println("No. of games won:" +Won);
 			System.out.println("No. of games lose:" +Lose);
-			System.out.println("No more chances left");
-			System.out.println("Thankyou For Playing the game");
+			System.out.println("You have no more chances to play");
+			System.out.println("Thanks for playing");
 			return;
 		}
 	}
