@@ -1,4 +1,6 @@
-
+//**
+   @Author: - Sanchit
+*//
 	import java.util.Scanner;
 	public class Computation{
 
