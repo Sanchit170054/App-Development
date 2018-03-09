@@ -2,22 +2,6 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class ComputationForExponent {
-	public static boolean abc(double n) {
-		if (n==0.5) {
-			boolean answer = true;
-			return answer;
-		}
-		if (n==2) {
-			boolean answer = true;
-			return answer;
-		}
-		if (n==3) {
-			boolean answer = true;
-			return answer;
-import java.text.DecimalFormat;
-import java.util.Scanner;
-
-public class ComputationForExponent {
 	public static boolean abc(double c) {
 		if (c==1) {
 			boolean answer = true;
@@ -69,3 +53,4 @@ public static void main(String[] args) {
 	value.close();
 	}
 }
+
