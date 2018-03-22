@@ -16,21 +16,21 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 public class NewWorkbook {
 	public static void main(String[] args) throws IOException 
 	{
-		// Step #1 : Locate path and file of input excel.
+		//Locate path and file of input excel.
 		File inputFile=new File("sample-xlsx-file.xlsx");
 		FileInputStream fis=new FileInputStream(inputFile);
 		XSSFWorkbook inputWorkbook=new XSSFWorkbook(fis);
 		int inputSheetCount=inputWorkbook.getNumberOfSheets();
 		
 		
-		// Step #2 : Locate path and file of output excel.
+		//Locate path and file of output excel.
 		File outputFile=new File("New work book.xlsx");
 		FileOutputStream fos=new FileOutputStream(outputFile);
 		
-		// Step #3 : Creating workbook for output excel file.
+		//Creating workbook for output excel file.
 		XSSFWorkbook outputWorkbook=new XSSFWorkbook();
 		
-		// Step #4 : Creating sheets with the same name as appearing in input file.
+		// Creating sheets with the same name as appearing in input file.
 		for(int i=0;i<inputSheetCount;i++) 
                 { 
                   XSSFSheet inputSheet=inputWorkbook.getSheetAt(i); 
@@ -41,9 +41,10 @@ public class NewWorkbook {
                  copySheet(inputSheet,outputSheet); 
                 }
 
-               // Step #9 : Write all the sheets in the new Workbook(testData_Copy.xlsx) using FileOutStream Object
+               // Write all the sheets in the new Workbook(testData_Copy.xlsx) using FileOutStream Object
                outputWorkbook.write(fos); 
-              // Step #10 : At the end of the Program close the FileOutputStream object. 
+              
+               //At the end of the Program close the FileOutputStream object. 
                fos.close(); 
           }
 
@@ -60,7 +61,7 @@ public class NewWorkbook {
 				Iterator cellIterator=((XSSFRow) rowIterator.next()).cellIterator();
 				while(cellIterator.hasNext())
 				{
-				// Step #5-8 : Creating new Row, Cell and Input value in the newly created sheet. 
+				//Creating new Row, Cell and Input value in the newly created sheet. 
 					String cellData=cellIterator.next().toString();
 					if(currentCellIndex==0)
 						outputSheet.createRow(currentRowIndex).createCell(currentCellIndex).setCellValue(cellData);
