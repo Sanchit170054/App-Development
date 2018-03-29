@@ -21,7 +21,7 @@ public class RecursiveBinarySearch {
 	}
 	
 	public static void main (String [] args) {
-		int goal = 19;
+		int goal = 15;
 		int result = recursiveBinarySearch(data, goal, 0, data.length-1);
 		if (result < 0) System.out.println("The search could not find: " + goal);
 		else System.out.println("The goal of " + goal + " was found at index: " + result);
