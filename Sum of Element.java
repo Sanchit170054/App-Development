@@ -1,24 +1,31 @@
-package RecurionPuzzlesTemplets;
-import java.util.*;
-public class Sum
+
+import java.io.*;
+import java.util.Scanner;
+ 
+public class ElementSum
 {
-    public int sumofelement
-    (int n)
-    {
-        if(n==0)
-            return 0;
-        else
-            return n+sumNumbers(n-1);
-    }
+ 
+public static void main(String[] args)
+{
+System.out.println("Enter the value of N");
+ 
+Scanner sc = new Scanner(System.in); 
+int number = sc.nextInt(); 
+ 
+int sum = sumR(number);
+ 
+System.out.println("Sum of " + number + " Numbers using Recursion is : " + sum);
+}
+ 
 
-
-    public static void main(String args[])
-    {
-        Scanner o =new Scanner(System.in);
-        System.out.println("Enter value");
-        int n=o.nextInt();
-        Sum obj=new Sum();
-        int sum=obj.sumNumbers(n);
-        System.out.println("The sum of numbers is "+sum);
-    }
+public static int sumR(int num)
+{
+int sum;
+if(num==1) return(1) ;
+ 
+else sum=num + sumR(num-1); 
+return sum;
+ 
+}
+ 
 }
