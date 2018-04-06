@@ -1,15 +1,13 @@
-package recursivepuzzle;
 
 public class SmallerArray {
-
 
 	static int min;
 	
 	public static void main(String[] args) {
-		int container[] = {0,6,6,3,1,5,-8,-9,-2,6,};	
+		int container[] = {-3,70,14,4,-1,-9,87,-2,6,};	
 		
 		
-		System.out.println("Smallest are: = " + small(container, container.length));
+		System.out.println("Smallest is: = " + small(container, container.length));
 		
 	}
 
@@ -22,6 +20,5 @@ public class SmallerArray {
 		
 		return small(numbers, --size);
 		
-				
 	}
 }
